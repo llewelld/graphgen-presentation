@@ -1,0 +1,150 @@
+digraph Automark {
+	rankdir = "TB";
+	bgcolor = "transparent";
+
+	marked [
+		shape = box;
+		label = "Previously marked code";
+		width = "3.5cm";
+		style = "filled";
+		fillcolor = "#eeeeee";
+	];
+
+	grades1 [
+		shape = box;
+		label = "Grades";
+		width = "1.5cm";
+		style = "filled";
+		fillcolor = "#aaeeff";
+	];
+
+	automark1 [
+		shape = box;
+		label = "Feature extractor";
+		width = "1.5cm";
+		style = "filled, rounded";
+		fillcolor = "#eeeeee";
+	];
+
+	features1 [
+		shape = box;
+		label = "Feature vectors";
+		width = "1.5cm";
+		style = "filled";
+		fillcolor = "#eeeeee";
+	];
+
+	optimiser [
+		shape = box;
+		label = "Optimisation";
+		width = "3.5cm";
+		style = "filled, rounded";
+		fillcolor = "#eeeeee";
+	];
+
+	weightings1 [
+		shape = box;
+		label = "Weights";
+		width = "1.5cm";
+		style = "filled";
+		fillcolor = "#aaffaa";
+	];
+
+	weightings2 [
+		shape = box;
+		label = "Weights";
+		width = "1.5cm";
+		style = "filled";
+		fillcolor = "#aaffaa";
+	];
+
+	unmarked [
+		shape = box;
+		label = "Unmarked code";
+		width = "3.5cm";
+		style = "filled";
+		fillcolor = "#eeeeee";
+	];
+
+	automark2 [
+		shape = box;
+		label = "Feature extractor";
+		width = "1.5cm";
+		style = "filled, rounded";
+		fillcolor = "#eeeeee";
+	];
+
+	features2 [
+		shape = box;
+		label = "Feature vectors";
+		width = "1.5cm";
+		style = "filled";
+		fillcolor = "#eeeeee";
+	];
+
+	grader [
+		shape = box;
+		label = "Automarker";
+		width = "3.5cm";
+		style = "filled, rounded";
+		fillcolor = "#eeeeee";
+	];
+
+	grades2 [
+		shape = box;
+		label = "New grades";
+		width = "1.5cm";
+		style = "filled";
+		fillcolor = "#aaeeff";
+	];
+
+	marked -> automark1;
+	automark1 -> features1 [weight = 2];
+	marked -> grades1 [weight = 1];
+	
+	features1 -> optimiser;
+	grades1 -> optimiser;
+
+	optimiser -> weightings1;
+
+
+	unmarked -> automark2;
+	automark2 -> features2 [weight = 2];
+	unmarked -> weightings2 [weight = 1; color = "none"];
+	
+	features2 -> grader;
+	weightings2 -> grader;
+
+	grader -> grades2;
+
+	subgraph cluster_0 {
+		node [];
+		style = "dashed, rounded, filled";
+
+		label = "Training stage";
+
+		fillcolor = "#fde0dd";
+
+		marked
+		automark1
+		features1
+		grades1
+		optimiser
+	}
+
+	subgraph cluster_1 {
+		node [];
+		style = "dashed, rounded, filled";
+		
+		label = "Automarking stage";
+
+		fillcolor = "#fee6ce";
+
+		unmarked
+		automark2
+		features2
+		grader
+		weightings2
+	}
+}
+

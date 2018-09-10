@@ -1,0 +1,118 @@
+% This is LLNCS.DEM the demonstration file of
+% the LaTeX macro package from Springer-Verlag
+% for Lecture Notes in Computer Science,
+% version 2.4 for LaTeX2e as of 16. April 2010
+%
+\documentclass[envcountsame]{llncs}
+%
+%\usepackage{makeidx}  % allows for indexgeneration
+
+
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage[pdftex]{graphicx}
+\usepackage{tabularx}
+\graphicspath{{./figures/}}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{marginnote}
+\usepackage{yhmath}
+\usepackage{eqnarray}
+
+\def\etal{{\it et al.}}
+\def\etc{{\it etc.}}
+\def\eg{{\it e.g.}}
+\def\ie{{\it i.e.}}
+\def\cf{{\it cf.}}
+\def\qv{{\it q.v.}}
+\def\qqv{{\it qq.v.}}
+\def\st{s.t.\ }
+\def\concat{\mathbin{|}}
+
+\newtheorem{notation}{Notation}[section]
+\def\cc{\tt}
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcommand{\comment}[1]{\marginnote{\textit{\textbf{\scriptsize{#1}}}}}
+\newcolumntype{e}{@{\qquad}}
+\newcommand{\rotr}[1]{\multicolumn{1}{c|}{\rotatebox[origin=l]{90}{#1}}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+%\makeindex
+
+%
+\begin{document}
+
+\spnewtheorem{claimnum}{Claim}{\itshape}{\rmfamily}
+%
+\frontmatter          % for the preliminaries
+%
+\pagestyle{headings}  % switches on printing of running heads
+\addtocmark{Example paper} % additional mark in the TOC
+%
+\mainmatter              % start of the contributions
+%
+\title{Automatically Generating Visualisations}
+%
+\titlerunning{Automatically Generating Visualisations}  % abbreviated title (for running head)
+%                                     also used for the TOC unless
+%                                     \toctitle is used
+%
+\author{David Llewellyn-Jones}
+%
+\authorrunning{David Llewellyn-Jones} % abbreviated author list (for running head)
+%
+%%%% list of authors for the TOC (use if author list has to be modified)
+\tocauthor{David Llewellyn-Jones}
+%
+\institute{Computer Laboratory, University of Cambridge, Cambridge, UK,\\
+\email{David.Llewellyn-Jones@cl.cam.ac.uk},\\
+\texttt{http://www.flypig.co.uk}}
+
+\maketitle              % typeset the title of the contribution
+
+\begin{abstract}
+Automatically generating graphs and visualisations of experimental data can be a powerful way to encourage experimentation. It also ensures graphs are up-to-date and consistent across all documents containing them.
+\end{abstract}
+
+
+\section{Introduction}
+
+There are a myriad great tools for generating graphs, images and figures for use in scientific publications. Just a few examples include R \cite{introtor}, Matlab/Octave \cite{octave} and Matplotlib \cite{matplotlib}. The graphs shown in figure \ref{fig:autogen} were generated using Matplotlib.pyplot, which provides an interface to Matplotlib that Matlab/Octave users will find familiar. In the event the data changes, the graphs can be automatically regenerated and are inserted directly into this document without the need for manual intervention.
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[t]{0.49\textwidth}
+\centering
+\includegraphics[width=1.0\textwidth]{strange03}%
+\caption{Strange attractor.}
+\label{fig:strange}
+\end{subfigure}
+\begin{subfigure}[t]{0.49\textwidth}
+\centering
+\includegraphics[width=1.0\textwidth]{automark01}%
+\caption{Automark optimisationo.}
+\label{fig:automar}
+\end{subfigure}
+\caption{Graphs generated and inserted automatically.}
+\label{fig:autogen}
+\end{figure}
+
+
+%
+% ---- Bibliography ----
+%
+
+\bibliographystyle{splncs03}
+\bibliography{main}
+
+
+
+%\clearpage
+%\addtocmark[2]{Subject Index} % additional numbered TOC entry
+%\markboth{Subject Index}{Subject Index}
+%\renewcommand{\indexname}{Subject Index}
+%\printindex
+\end{document}
