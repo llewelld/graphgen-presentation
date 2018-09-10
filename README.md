@@ -2,9 +2,9 @@
 
 A presentation given as part of teh Molecular Laboratory Training Workshop 2018.
 
-You can download the pre-built presentation slides, and the example paper that demonstrates embedding the automatically generated graph into a document, from here:
-1. Slides: http://www.flypig.co.uk/presentations/graphgen-presentation.pdf
-2. Example document: http://www.flypig.co.uk/presentations/graphgen-example.pdf
+Download the pre-built documents (slides and example paper).
+1. [Slides](http://www.flypig.co.uk/presentations/graphgen-presentation.pdf)
+2. [Example document](http://www.flypig.co.uk/presentations/graphgen-example.pdf)
 
 In order to build the files you'll need (at least) the following:
 1. LaTeX
